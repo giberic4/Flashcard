@@ -36,20 +36,34 @@ namespace API.Controllers
 
 
         [HttpPost]
-
         [Route("Card/create")]
-        public List<Card> Create(Card u)
+        public IActionResult Create([FromBody] Card card)
         {
-            _service.CreateCard(u);
-            return _service.GetAll();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _service.CreateCard(card);
+            return Ok(_service.GetAll());
         }
 
         [HttpPut]
         [Route("Card/update")]
-        public Card UpdateCard(Card u)
+        public IActionResult UpdateCard([FromBody] Card card)
         {
-            return _service.UpdateCard(u);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var updatedCard = _service.UpdateCard(card);
+            if (updatedCard == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedCard);
         }
         
         [HttpDelete]

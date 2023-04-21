@@ -31,7 +31,6 @@ public class CardServices
         return _context.Cardset.FirstOrDefault(w => w.Id == id)!;
 
     }
-
     public Card UpdateCard(Card u)
     {
         _context.Update(u);

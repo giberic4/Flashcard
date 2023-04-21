@@ -37,11 +37,6 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseCors("OpenAccess");
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-
-}
 app.UseSwagger();
 app.UseSwaggerUI();
 
