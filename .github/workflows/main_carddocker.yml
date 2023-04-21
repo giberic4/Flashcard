@@ -30,8 +30,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d5d7308d9bb642f0a65d8567d3da4506 }}/giberic4/flashcard:${{ github.sha }}
-        file: ./
+        tags: index.docker.io/giberic4/flashcard:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
