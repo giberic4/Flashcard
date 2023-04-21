@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/giberic4/flashcard:latest
+        tags: index.docker.io/giberic4/flashcard::0.0.1
         file: ./Dockerfile
 
   deploy:
