@@ -45,7 +45,7 @@ namespace API.Controllers
             }
 
             _service.CreateCard(card);
-            return Ok(_service.GetCard(card.id));
+            return Ok(_service.GetCard(card.Id));
         }
 
         [HttpPut]
